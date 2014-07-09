@@ -3,14 +3,17 @@
     Trade Core project
   </description>
   
-  <property name="client" location="client"/>
   <property name="server" location="server"/>
-  <property name="assets" location="server/assets/"/>
-  <property name="model"  location="server/model/"/>
+  
   
   <target name="build" depends="server_build">
     <tstamp/>
     <echo>Start building project</echo>
+  </target>
+  
+  <target name="git-update">
+    <git command="pull" failonerror="true"/>
+    <printtime/>
   </target>
 
   <target name="server_build">
