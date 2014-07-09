@@ -1,9 +1,22 @@
-<project name="MMurder" default="build" basedir=".">
+<project name="MMurder" default="git-pull" basedir=".">
   <description>
     Trade Core project
   </description>
   
   <property name="server" location="server"/>
+  
+  <macrodef name = "git">
+    <attribute name = "command" />
+    <attribute name = "dir" default = "" />
+    <element name = "args" optional = "true" />
+    <sequential>
+        <echo message = "git @{command}" />
+        <exec executable = "git" dir = "@{dir}">
+            <arg value = "@{command}" />
+            <args/>
+        </exec>
+    </sequential>
+</macrodef>
   
   
   <target name="build" depends="server_build">
