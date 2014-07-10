@@ -3,6 +3,7 @@
 class main_model extends ModelCore {
   private $_session;  
   private $_user;
+  private $_output;
   
   protected function _load() {    
     $this->_session = $_SESSION;    
@@ -17,6 +18,13 @@ class main_model extends ModelCore {
       $login->out();
       return false;
     }
-    echo $this->_on_update();
+    
+    $this->_output = $this->_on_update();
+    
+    $menu = $fabric->createModule('menu');
+    $menu_text = $menu->run($this->_user);
+    
+    $this->_output = str_replace("%%menu%%", $menu_text, $this->_output);
+    echo $this->_output;
   }
 }

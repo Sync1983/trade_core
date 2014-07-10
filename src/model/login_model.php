@@ -11,13 +11,17 @@ class login_model extends ModelCore {
    */
   protected $_users;
 
+  protected function _get_data($user = null){
+    return $this->_data;
+  }
 
   protected function _load_user($user_id) {  
     $this->_data = array(
         "user_id"       => 0,
         "user_role"     => "guest",        
         "user_name"     => "guest",
-        "user_subname"  => "",
+        "user_firstname"=> "anon",
+        "user_subname"  => "subanon",
     );
     
     if((!$user_id)&&(!$this->_checkCookie())) {

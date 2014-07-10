@@ -67,11 +67,18 @@ hr {
 #work-table {  
 }
 
-.order {
-  max-width: 250px;
+.order {  
   max-height: 300px;
   margin-right: 40px;
   float:left;
+  position: relative;
+  z-index: 20;
+}
+.order-table {
+  background-color: #FFF;
+  position: relative;
+  z-index: 11130;
+  width: 100%;
 }
 .order>div.panel-body {
   padding: 0 0 0 0;
