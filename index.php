@@ -2,7 +2,9 @@
 include './common.inc.php';
 
 $trade_core = new Trade_Core();
-$trade_core->run();
+$post = $_POST;
+$get = $_GET;
+$trade_core->run(array_merge($get,$post));
 
 /*ob_start();
 include(__DIR__.'/template/head.html');

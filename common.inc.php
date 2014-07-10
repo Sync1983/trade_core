@@ -1,9 +1,13 @@
 <?php
 
-include_once('_install/EnviromentSingtone.inc.php');
-include_once('_install/DBSingtone.inc.php');
-include_once('_install/LogSingltone.inc.php');
-include_once('_install/OutputSingltone.inc.php');
+$file_list = scandir(__DIR__."/_include");
+if($file_list) {
+  foreach ($file_list as $file) {
+    if(fnmatch("*.php", $file)) {
+      include_once(__DIR__.'/_include/'.$file);
+    }
+  }
+}
 
-include_once('setup.override.php');
-include_once('src/trade_core.php');
+include_once(__DIR__.'/setup.override.php');
+include_once(__DIR__.'/src/trade_core.php');
