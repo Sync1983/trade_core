@@ -1,9 +1,21 @@
-function main(parent) {
-  var main = {};
+function menu(parent) {
+  var menu = {};
   
-  return main;
+  menu.load = function(id) {
+    function onLoad(answer){
+      
+    };
+    
+    function onError(answer) {
+      
+    };
+    
+    window.main.ajax("/",{action:id}, onLoad, onerror);    
+  };
+  
+  return menu;
 };
 
-window.main = main(window);
+window.menu = menu(window);
 
 

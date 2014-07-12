@@ -22,9 +22,18 @@ class main_model extends ModelCore {
     $this->_output = $this->_on_update();
     
     $menu = $fabric->createModule('menu');
+    $order= $fabric->createModule('order');
     $menu_text = $menu->run($this->_user);
+    $order_text = $order->run($this->_user);
     
     $this->_output = str_replace("%%menu%%", $menu_text, $this->_output);
+    $this->_output = str_replace("%%main%%", $order_text, $this->_output);
     echo $this->_output;
+  }
+  
+  protected function _ajax($param) {
+    $action = isset($param['action'])?strval($param['action']):"order";
+    $action = escapeshellcmd($action);
+    
   }
 }

@@ -8,7 +8,7 @@ class main_control extends ControllerCore {
     }
     
     if(isset($params['action'])){
-      
+      $this->_model->change("ajax",$params);
     }
   }
   

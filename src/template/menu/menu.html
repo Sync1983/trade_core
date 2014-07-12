@@ -13,24 +13,34 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">                        
         <li class="active">
-            <a href="#">Заказы             </a> </li>
-        <li><a href="#">Архив              </a> </li>
-        <li><a href="#">Баланс             </a> </li>
-        <li><a href="#">Оплата             </a> </li>
-        <li><a href="#">Данные покупателя  </a> </li>
-        <li><a href="#">Данные пользователя</a> </li>
+          <a href="#" onclick="window.menu.load('order');return false;">Заказы
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('arch');return false;">Архив
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('money');return false;">Баланс
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('pay');return false;">Оплата
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('nomen');return false;">Номенклатура
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('office');return false;">Данные покупателя
+          </a> 
+        </li>
+        <li>
+          <a href="#" onclick="window.menu.load('user');return false;">Данные пользователя
+          </a> 
+        </li>
       </ul>          
-    </div>
-    <ol id="sub-menu1" class="breadcrumb sub-menu" style="display: block;">
-      <li><a href="#">Добавить заказ</a></li>
-      <li><a href="#">Проверить активные</a></li>
-      <li><a href="#">Оформить готовые</a></li>
-    </ol>
-    <ol id="sub-menu2" class="breadcrumb sub-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li class="active">Data</li>
-    </ol>
-    <hr>
+    </div>    
   </div>
 </nav>
