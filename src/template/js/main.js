@@ -11,6 +11,13 @@ function main(parent) {
     $(".preloader").hide(100);
   }
   
+  main.onAjaxError = function(html){
+    $(".error").html(html);
+    $(".error").show(120,function(){
+      $(".error").hide(3000);
+    });
+  };
+      
   main.ajax = function(url,params,callback,callback_error) {
     ajax_on();  
     $.ajax({

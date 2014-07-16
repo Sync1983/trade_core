@@ -65,8 +65,17 @@ body {
   position: relative;
 }
 
-.order {  
-  max-height: 300px;
+.order-panel {  
+  background-color: rgba(0,0,0,0);
+  border: 0px;
+  height: 92%;
+  width: 100%;
+  overflow: scroll;
+  float: left;
+}
+
+.order{  
+  max-width: 300px;  
   margin-right: 40px;
   float:left;
   position: relative;

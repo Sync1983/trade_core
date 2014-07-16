@@ -24,7 +24,7 @@ class main_model extends ModelCore {
     $menu = $fabric->createModule('menu');
     $order= $fabric->createModule('order');
     $menu_text = $menu->run($this->_user);
-    $order_text = $order->run($this->_user);
+    $order_text = $order->load_user($this->_user);
     
     $this->_output = str_replace("%%menu%%", $menu_text, $this->_output);
     $this->_output = str_replace("%%main%%", $order_text, $this->_output);
@@ -42,10 +42,6 @@ class main_model extends ModelCore {
     $action = escapeshellcmd($action);
     $fabric = FabricSingltone::getInstance();
     $action_ctrl = $fabric->createModule($action);
-    if($action=="order"){
-      echo json_encode(['success'=>1,'html'=>$action_ctrl->run($this->_user)]);      
-    }else {
-      echo $action_ctrl->run($param);
-    }
+    echo $action_ctrl->run($param);
   }
 }
