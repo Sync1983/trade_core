@@ -48,6 +48,14 @@
     </exec>
   </target>
   
+   <target name="price_add" depends="if_windows, if_unix">
+    <tstamp/>
+    <echo>Add csv price to nimen</echo>    
+    <exec dir="${server}/cli/" executable="${php}/php">
+      <arg value="add_csv_nomen.php"/>      
+    </exec>
+  </target>
+  
   
   <target name="build" depends="server_build">
     <tstamp/>

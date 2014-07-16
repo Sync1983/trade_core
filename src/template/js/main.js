@@ -1,12 +1,14 @@
 function main(parent) {
   var main = {};
   
-  function ajax_on() {
-    
+  function ajax_on() {    
+    $(".shadow-screen").show(100);
+    $(".preloader").show(200);
   }
   
   function ajax_off() {
-    
+    $(".shadow-screen").hide(50);
+    $(".preloader").hide(100);
   }
   
   main.ajax = function(url,params,callback,callback_error) {
@@ -15,25 +17,23 @@ function main(parent) {
       type: "POST",
       url: url,
       data: params
-    }).done(function(answer){    
-      console.log(answer);    
+    }).done(function(answer){       
       try{
-        answer = JSON.parse(answer);    
+        var answer_parse = JSON.parse(answer);    
       }catch (e) {
         console.log('Ajax Error');
         console.log(e);
         console.log(answer);
-      } finally {
         return;
       }
-    
-      if(answer.error) {
-        callback_error(answer.erro);
+      
+      if(answer_parse.error) {
+        callback_error(answer_parse);
         return;
       }
-    
-      if(answer.success === 1) {
-        callback(answer);
+      
+      if(answer_parse.success === 1) {
+        callback(answer_parse);
         return;
       }
     }).always(function () {

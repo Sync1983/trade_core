@@ -31,8 +31,12 @@ class ModelCore {
    echo json_encode(['error'=>$message]);
  }
  
- protected function _succes_answer() {
-   echo json_encode(['succes'=>1]);
+ protected function _succes_answer($data = null) {
+   if(!$data) {
+    echo json_encode(['success'=>1]);
+   } else {
+     echo json_encode(array_merge($data,['success'=>1]));
+   }
  }
  
  protected function _data_answer($data) {
@@ -47,12 +51,16 @@ class ModelCore {
    return $this->_data[$field];
  }
 
- protected function _on_update() {
+ protected function _on_update($view_name=NULL) {
   if(!$this->_view){
-    Log::sendError("Updatin null viewer!".get_class($this));
+    Log::sendError("Updating null viewer!".get_class($this));
     return false;
   }
-  return $this->_view->modelChange($this->_data);
+  if(!$view_name) {
+    return $this->_view->modelChange($this->_data);
+  } else {
+    return $this->_view->modelChange($this->_data);
+  }
  }
   
 }
