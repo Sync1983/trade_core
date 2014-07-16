@@ -17,7 +17,16 @@ function main(parent) {
       $(".error").hide(3000);
     });
   };
-      
+  
+  main.exit = function () {
+    function onExit() {      
+      location.reload(false);
+    }
+    
+    main.ajax("/",{action:"login",subaction:"exit"},onExit);
+    return true;
+  };
+  
   main.ajax = function(url,params,callback,callback_error) {
     ajax_on();  
     $.ajax({
@@ -47,7 +56,6 @@ function main(parent) {
       ajax_off();
     });
   };
-  
   
   return main;
 };

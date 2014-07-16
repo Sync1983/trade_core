@@ -9,6 +9,9 @@ class login_control extends ControllerCore {
     if(isset($params['view'])&&($params['view']=='login')) {
       $this->_model->change('login',$params);
     }
+    if(isset($params['subaction'])&&($params['subaction']=='exit')) {
+      $this->_model->change('exit');
+    }
     
   }
 

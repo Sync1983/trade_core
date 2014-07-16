@@ -3,6 +3,7 @@
 class main_model extends ModelCore {
   private $_session;  
   private $_user;
+  private $_user_id;
   private $_output;
 
   protected function _load() {    
@@ -13,7 +14,9 @@ class main_model extends ModelCore {
     if(isset($this->_session['user_id'])) {
       $this->_user_id = $this->_session['user_id'];    
     }
-    
+    if(!$this->_user_id) {
+      $this->_user_id = 0;
+    }
     if(!($this->_user = $login->load_user($this->_user_id))) {
       $login->out();
       return false;

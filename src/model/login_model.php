@@ -10,6 +10,13 @@ class login_model extends ModelCore {
    * @var MongoCollection
    */
   protected $_users;
+  
+  protected function _exit($data=null) {    
+    setcookie('user_name',"");
+    setcookie('user_pass',"");
+    $_SESSION['user_id'] = null;
+    return $this->_succes_answer(['html'=>'']);
+  }
 
   protected function _get_data($user = null){
     return $this->_data;
@@ -23,8 +30,8 @@ class login_model extends ModelCore {
         "user_firstname"=> "anon",
         "user_subname"  => "subanon",
     );
-    
-    if((!$user_id)&&(!$this->_checkCookie())) {
+    $_SESSION['user_id'] = null;
+    if((!$user_id)&&(!($user_id=$this->_checkCookie()))) {
       return false;
     }    
     
@@ -40,7 +47,7 @@ class login_model extends ModelCore {
     foreach ($user as $key => $value) {   //Save user fields from db
       $this->_set_data($key, $value);
     }
-    
+    $_SESSION['user_id'] = $user['_id'];
     return $this;
   }
   
@@ -50,7 +57,12 @@ class login_model extends ModelCore {
        (!isset($cook['user_pass']))) {
       return false;
     }    
-    return false;
+    $result = $this->_users->find(["user_name"=>$cook['user_name'],"password"=>  $cook['user_pass']])->limit(1);
+    if(($result->count()>0)) {      
+      $user=$result->getNext();
+      return $user["_id"];
+    }
+    return FALSE;
   }
   
   protected function _login($params) {
@@ -108,8 +120,9 @@ class login_model extends ModelCore {
       $this->_error_answer('Превышено число попыток. Следующий вход возможен через '. (5*60 - (time()-$_SESSION['last_login'])).' секунд.');
       return false;
     }
-    
+
     $_SESSION['last_login'] = time();
+    return TRUE;
   }
 
 
