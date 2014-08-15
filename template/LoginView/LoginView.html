@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+
+    <title>%%title%%</title>    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >    
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/> 
+  </head>
+  
+  <body>
+    <style>
+      .container {
+        width: 400px;
+      }
+    </style>
+    <div class="container">
+
+      <form class="form-signin" role="form" method="post">
+        <input name="action" value="login" type="hidden"/>
+        <h2 class="form-signin-heading">Вход</h2>
+        <input name="user_name" type="text"     class="form-control input-large"  placeholder="Имя пользователя" required autofocus>
+        <input name="user_pass" type="password" class="form-control input-lg"     placeholder="Пароль" required>
+        <div class="checkbox">
+          <label>
+            <input name="remember" type="checkbox"> Запомнить меня
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+      </form>
+
+    </div> <!-- /container -->
+  </body>
+</html>
+

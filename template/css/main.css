@@ -1,0 +1,35 @@
+/* 
+    Created on : 11.06.2014, 4:44:20
+    Author     : Sync
+*/
+
+html {
+  height: 88%;
+}
+
+body { 
+  background-color: #1a82f7;
+  background: -webkit-gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+  background: -webkit-linear-gradient(left, #2F2727, #1a82f7);
+  background: -moz-linear-gradient(left, #2F2727, #1a82f7);
+  background: -ms-linear-gradient(left, #2F2727, #1a82f7);
+  background: -o-linear-gradient(left, #2F2727, #1a82f7);   
+  font-family: verdana, arial, sans-serif, serif;
+  font-size: 10pt;
+  height: 100%;
+}
+
+.work-table-panel { 
+  margin-top: 100px;
+  background-color: #1a82f7;
+  background: -webkit-gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+  background: -webkit-linear-gradient(left, #2F2727, #1a82f7);
+  background: -moz-linear-gradient(left, #2F2727, #1a82f7);
+  background: -ms-linear-gradient(left, #2F2727, #1a82f7);
+  background: -o-linear-gradient(left, #2F2727, #1a82f7); 
+  height: 99%;
+  width: 99%;
+  margin-left: 10px;
+  margin-left: 10px;
+  z-index: 10;
+}

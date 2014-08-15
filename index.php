@@ -1,10 +1,17 @@
  <?php
 include './common.inc.php';
 
-$trade_core = new Trade_Core();
-$post = $_POST;
-$get = $_GET;
-$trade_core->run(array_merge($get,$post));
+$user   = new User();
+$post   = $_POST;
+$get    = $_GET;
+$user_obj = $user->run(array_merge($get,$post));
+if(!$user_obj) {
+  return;
+}
+
+$view = new MainView($user_obj);
+$view->show();
+ 
 
 /*ob_start();
 include(__DIR__.'/template/head.html');
